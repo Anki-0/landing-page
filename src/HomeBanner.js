@@ -121,9 +121,9 @@ export default function HomeBanner({ onCursor }) {
       />
       <BannerTitle variants={parent} initial="initial" animate="animate">
         <Headline variants={child}>
-          UP
-          <br />
           HILLS
+          <br />
+          UP
         </Headline>
         <Headline variants={child}>STUDIO</Headline>
       </BannerTitle>

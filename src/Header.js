@@ -52,7 +52,7 @@ export default function Header() {
             }}
             onMouseLeave={onCursor}
           >
-            <Link href={"/"}>UP HILLS</Link>
+            <Link href={"/"}>HILLSUP</Link>
             <span
               onClick={toggleTheme}
               onMouseEnter={() => {
