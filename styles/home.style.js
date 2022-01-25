@@ -156,17 +156,18 @@ export const HomeAboutSection = styled(motion.div)`
 export const About = styled.div`
   width: 100%;
   h2 {
-    width: 60%;
+    width: 78%;
     font-size: 2.3rem;
     font-weight: 400;
-    margin-left: 124px;
+    margin-left: 80px;
     color: ${(props) => props.theme.text};
   }
   p {
-    max-width: 440px;
+    max-width: 72%;
     font-size: 1rem;
+    margin-top: 2rem;
     line-height: 1.6rem;
-    margin-left: 124px;
+    margin-left: 82px;
     color: ${(props) => props.theme.text};
   }
 

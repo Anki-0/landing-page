@@ -37,7 +37,7 @@ const HomeContent = () => {
       <Container>
         <Content>
           Great stories don’t just happen— <br /> they need to be uncovered. And
-          we dig deep to discover the great stories that lie just below the
+          we hills up to discover the great stories that lie just below the
           surface. Dirt under our fingernails and all.
         </Content>
       </Container>
