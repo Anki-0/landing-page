@@ -88,7 +88,7 @@ const HomeFeatured = ({ onCursor }) => {
               </h2>
             </FeaturedContent>
             <FeaturedVideo>
-              <video muted loop width={width} autoPlay>
+              <video muted autoPlay loop width={width}>
                 <source
                   src={
                     "/Photographers and photography studios video logo animation advertisement_commercial.mp4"
