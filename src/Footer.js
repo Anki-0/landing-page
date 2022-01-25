@@ -58,7 +58,7 @@ const Footer = ({ setHamburgerPosition, onCursor }) => {
         <Flex className="jc-col gap-50" sb>
           <FooterContent>
             <p>902.315.1279</p>
-            <p>info@furrow.studio</p>
+            <p>info@hillsup.studio</p>
           </FooterContent>
           <FooterContent wider>
             <p>15 Camburhill Ct Unit C</p>

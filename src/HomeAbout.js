@@ -108,7 +108,7 @@ const HomeAbout = ({ onCursor }) => {
         <Flex className="jc-col" alignTop>
           <About>
             <h2>
-              Furrow is an integrated, full-service creative studio offering
+              Hillsup is an integrated, full-service creative studio offering
               video production, creative development, and post-production
               services.
             </h2>
