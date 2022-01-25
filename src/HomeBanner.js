@@ -110,7 +110,7 @@ export default function HomeBanner({ onCursor }) {
     <Banner>
       <Video>
         <video autoPlay loop muted height="100%" width="100%">
-          <source src={"/3.mp4"} />
+          <source src={"/video.mp4"} />
         </video>
       </Video>
       <Canvas
