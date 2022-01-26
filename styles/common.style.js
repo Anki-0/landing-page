@@ -107,4 +107,7 @@ export const Cursor = styled.div`
   &.locked {
     border: 4px solid ${(props) => props.theme.text} !important;
   }
+  &.white {
+    background-color: #fff !important;
+  }
 `;

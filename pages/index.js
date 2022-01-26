@@ -1,5 +1,4 @@
 import { useState } from "react";
-import CustomCurson from "../src/CustomCurson";
 import Footer from "../src/Footer";
 import HomeAbout from "../src/HomeAbout";
 import HomeBanner from "../src/HomeBanner";
@@ -11,11 +10,6 @@ import {
 } from "../src/hooks/globalContext";
 
 export default function Home() {
-  const [hamburgerPosition, setHamburgerPosition] = useState({
-    x: 0,
-    y: 0,
-  });
-
   const dispatch = useGlobalDispatchContext();
   const { cursorStyles } = useGlobalStateContext();
   const onCursor = (cursorType) => {
@@ -26,16 +20,10 @@ export default function Home() {
 
   return (
     <>
-      <CustomCurson />
       <HomeBanner onCursor={onCursor} />
       <HomeContent />
       <HomeFeatured onCursor={onCursor} />
       <HomeAbout onCursor={onCursor} />
-      <Footer
-        onCursor={onCursor}
-        hamburgerPosition={hamburgerPosition}
-        setHamburgerPosition={setHamburgerPosition}
-      />
     </>
   );
 }

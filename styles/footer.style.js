@@ -40,4 +40,10 @@ export const FooterSocial = styled.div`
       height: 100%;
     }
   }
+
+  @media (max-width: 478px) {
+    .footerSocial {
+      flex-direction: row;
+    }
+  }
 `;

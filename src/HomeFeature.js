@@ -11,12 +11,18 @@ import {
   FeaturedContent,
   FeaturedProjects,
 } from "../styles/home.style";
+import {
+  useGlobalDispatchContext,
+  useGlobalStateContext,
+} from "./hooks/globalContext";
 import { useWindowSize as useSizes } from "@react-hook/window-size";
 
 // Scroll Animations
 import { useInView } from "react-intersection-observer";
 
-const HomeFeatured = ({ onCursor }) => {
+const HomeFeatured = ({ onCursor, setToggleMenu }) => {
+  const dispatch = useGlobalDispatchContext();
+  const { toggleMenu } = useGlobalStateContext();
   const [width] = useSizes();
 
   const [hovered, setHovered] = useState(false);
@@ -103,7 +109,11 @@ const HomeFeatured = ({ onCursor }) => {
       <Container>
         <FeaturedProjects>
           <Flex fe>
-            <button>
+            <button
+              onClick={() => {
+                dispatch({ type: "TOGGLE_MENU", toggleMenu: !toggleMenu });
+              }}
+            >
               <span>All Projects</span>
             </button>
           </Flex>

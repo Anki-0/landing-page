@@ -1,16 +1,21 @@
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Container, Flex } from "../styles/common.style";
 
 import { HeaderNav, Logo, Menu } from "../styles/Header.style";
+import useElementPosition from "./hooks/ElementPosition";
 import {
   useGlobalDispatchContext,
   useGlobalStateContext,
 } from "./hooks/globalContext";
-export default function Header() {
-  const { currentTheme, cursorStyles } = useGlobalStateContext();
+
+export default function Header({ onCursor, setHamburgerPosition }) {
+  const { currentTheme, cursorStyles, toggleMenu } = useGlobalStateContext();
   const dispatch = useGlobalDispatchContext();
-  //   console.log("sethteme", currentTheme);
+  const hamburger = useRef(null);
+  const position = useElementPosition(hamburger);
+
+  console.log(toggleMenu);
 
   useEffect(() => {
     window.localStorage.getItem("theme") == null
@@ -28,17 +33,15 @@ export default function Header() {
       ? dispatch({ type: "TOGGLE_THEME", theme: "light" })
       : dispatch({ type: "TOGGLE_THEME", theme: "dark" });
   };
-
-  const onCursor = (cursorType) => {
-    // console.log(cursorType);
-    cursorType = (cursorStyles.includes(cursorType) && cursorType) || false;
-    dispatch({ type: "CURSOR_TYPE", cursorType: cursorType });
+  const menuHover = () => {
+    onCursor("locked");
+    setHamburgerPosition({ x: position.x, y: position.y + 72 });
   };
 
   return (
     <HeaderNav
-      initial={{ y: -72, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
+      initial={{ y: -72, opacity: 0 }}
       transition={{
         duration: 1,
         ease: [0.6, 0.05, -0.01, 0.9],
@@ -47,22 +50,23 @@ export default function Header() {
       <Container>
         <Flex sb noHeight>
           <Logo
-            onMouseEnter={() => {
-              onCursor("hoverred");
-            }}
+            onMouseEnter={() => onCursor("hovered")}
             onMouseLeave={onCursor}
           >
-            <Link href={"/"}>HILLSUP</Link>
+            <Link href="/">HILLs</Link>
             <span
               onClick={toggleTheme}
-              onMouseEnter={() => {
-                onCursor("pointer");
-              }}
+              onMouseEnter={() => onCursor("pointer")}
               onMouseLeave={onCursor}
             ></span>
-            <Link href={"/"}>STUDIO</Link>
+            <Link href="/">UP</Link>
           </Logo>
-          <Menu>
+          <Menu
+            onClick={() => dispatch({ type: "TOGGLE_MENU", toggleMenu: true })}
+            ref={hamburger}
+            onMouseEnter={menuHover}
+            onMouseLeave={onCursor}
+          >
             <button>
               <span></span>
               <span></span>

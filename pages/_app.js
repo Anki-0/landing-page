@@ -9,8 +9,6 @@ function MyApp({ Component, pageProps }) {
   return (
     <GlobalProvider>
       <GlobalStyle />
-      <CustomCurson />
-      <Header />
       <Component {...pageProps} />
     </GlobalProvider>
   );
